@@ -229,18 +229,18 @@
   <joint name="ee_fixed_joint" type="fixed">
     <parent link="wrist_3_link"/>
     <child link="ee_link"/>
-    <origin rpy="0.0 0.0 1.57079632679" xyz="0.0 0.0823 0.0"/>
+    <origin rpy="1.57079632679 0.0 0 0" xyz="0.0 0.0823 0.0"/>
   </joint>
   <link name="ee_link">
     <collision>
       <geometry>
         <box size="0.01 0.01 0.01"/>
       </geometry>
-      <origin rpy="0 0 0" xyz="-0.01 0 0"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
     </collision>
     <inertial> <!-- added by Brian for pybullet -->
       <mass value="0.001"/>
-      <origin rpy="0 0 0" xyz="-0.01 0.0 0.0"/>
+      <origin rpy="0 0 0" xyz="0 0.0 0.0"/>
       <inertia ixx="1.6667e-8" ixy="0.0" ixz="0.0" iyy="1.6667e-8" iyz="0.0" izz="1.6667e-8"/>
     </inertial>
   </link>
