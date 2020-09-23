@@ -78,7 +78,7 @@ from .sawyer import Sawyer
 from .edo import Edo
 from .kr5 import KR5
 from .manipulator2d import Manipulator2D
-from .ur import UR3, UR5, UR10
+from .ur import UR3, UR5, UR10, UR5e
 
 # Bi-Manipulators
 from .baxter import Baxter, BaxterGripper

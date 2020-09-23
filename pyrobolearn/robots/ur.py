@@ -127,6 +127,41 @@ class UR10(Manipulator):
         self.name = 'ur10'
 
 
+class UR5e(Manipulator):
+    r"""UR5e manipulator
+
+    References:
+        - [1] Universal robots: https://www.universal-robots.com/
+        - [2] UR description: https://github.com/ros-industrial/universal_robot
+    """
+
+    def __init__(self, simulator, position=(0, 0, 0), orientation=(0, 0, 0, 1), fixed_base=True, scale=1.,
+                 urdf=os.path.dirname(__file__) + '/urdfs/ur/ur5e.urdf'):
+        """
+        Initialize the UR3 manipulator.
+
+        Args:
+            simulator (Simulator): simulator instance.
+            position (np.array[float[3]]): Cartesian world position.
+            orientation (np.array[float[4]]): Cartesian world orientation expressed as a quaternion [x,y,z,w].
+            fixed_base (bool): if True, the robot base will be fixed in the world.
+            scale (float): scaling factor that is used to scale the robot.
+            urdf (str): path to the urdf. Do not change it unless you know what you are doing.
+        """
+        # check parameters
+        if position is None:
+            position = (0., 0., 0.)
+        if len(position) == 2:  # assume x, y are given
+            position = tuple(position) + (0.,)
+        if orientation is None:
+            orientation = (0, 0, 0, 1)
+        if fixed_base is None:
+            fixed_base = True
+
+        super(UR5e, self).__init__(simulator, urdf, position, orientation, fixed_base, scale)
+        self.name = 'ur5'
+
+
 # Test
 if __name__ == "__main__":
     from itertools import count
