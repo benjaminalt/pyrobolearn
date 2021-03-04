@@ -17,7 +17,11 @@ with open('README.rst', 'r') as f:
 
 # get the required packages
 install_requires = parse_requirements('requirements.txt', session=False)
-reqs = [str(ir.req) for ir in install_requires]
+
+try:
+    requirements = [str(ir.req) for ir in install_requires]
+except:
+    requirements = [str(ir.requirement) for ir in install_requires]
 
 # setup
 setup(
@@ -39,7 +43,7 @@ setup(
     #           'models', 'robots', 'robots.ros', 'robots.ros.coman', 'robots.ros.walkman', 'filters',
     #           'metrics', 'rl', 'mechanics', 'objectives', 'experiments', 'exploration'],
     packages=find_packages(),  #find_packages(exclude=('tests',))
-    install_requires=reqs,
+    install_requires=requirements,
     classifiers=[
         "Programming Language :: Python :: 2.7",
         "Programming Language :: Python :: 3.5",
